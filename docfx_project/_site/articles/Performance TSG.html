@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PostgreSQL Performance TSG. </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PostgreSQL Performance TSG. ">
+    <meta name="generator" content="docfx 2.45.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="postgresql-performance-tsg">PostgreSQL <strong>Performance</strong> TSG.</h1>
+
+<p><img src="images%5C1.png" alt=""></p>
+<p>When you are working on troubleshooting Performance for Azure database for PostgreSQL Please check the following:</p>
+<h2 id="steps-to-follow-in-order-to-troubleshoot-performance-issues-in-postgresql">Steps to follow in order to troubleshoot performance issues in PostgreSQL:</h2>
+<ol>
+<li><p>Make sure the customer workload is not maxing out any of resource limits.</p>
+</li>
+<li><p>Make sure the customer doesn't have <a href="https://docs.microsoft.com/en-us/azure/postgresql/concepts-server-logs">Query logging enabled</a></p>
+</li>
+<li><p>Make sure customer is applying application side best practices (connection pooling, accelerated networking)</p>
+</li>
+<li><p>If customer is complaining about slow connection to the database please read this:  New Connection Perfromance in PostgreSQL</p>
+</li>
+<li><p>Ask customer to <a href="https://www.postgresql.org/docs/9.1/sql-analyze.html">Analyze his entire database</a></p>
+</li>
+<li><p>Ask customer to use Query Store:
+Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.
+Learn more about Query store here.
+you can also view some usage scenario for Query Store and some Best Practices for Query Store.</p>
+</li>
+<li><p><a href="https://docs.microsoft.com/en-us/azure/postgresql/concepts-query-performance-insight">Query Performance Insight</a>
+Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.</p>
+</li>
+<li><p><a href="https://docs.microsoft.com/en-us/azure/postgresql/concepts-performance-recommendations">Performance recommendations</a>
+Performance Recommendations feature analyses your databases to create customized suggestions for improved performance. To produce the recommendations, the analysis looks at various database characteristics including schema. Enable Query Store on your server to fully utilize the Performance Recommendations feature. After implementing any performance recommendation, you should test performance to evaluate the impact of those changes.</p>
+</li>
+</ol>
+<p>Feel free to refer your customers to the following <a href="https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/Performance-Troubleshooting-Basics-on-Azure-Database-for/ba-p/819227">blog post</a></p>
+<h2 id="related-tsgs-regarding-azure-database-for-postgresql-can-be-found-as-the-following">Related TSGs regarding Azure Database for PostgreSQL can be found as the following:</h2>
+<ol>
+<li><a href="http://www.chrismiles.info/systemsadmin/databases/articles/viewing-current-postgresql-queries/">Running Processes</a></li>
+<li><a href="https://www.postgresql.org/docs/9.1/sql-analyze.html">Update Statistics</a></li>
+<li>PostgreSQL queries performance</li>
+<li>Testing PostgreSQL Performance</li>
+<li>PostgreSQL Locks</li>
+<li>Testing Postgres with OSTRESS</li>
+<li>Query Store, Query Performance Insights, and Performance Recommendations</li>
+<li>Query Store</li>
+<li>DTA - Database tuning advisor</li>
+<li>Performance best practices for using Azure Database for PostgreSQL</li>
+<li>Performance TSG/XTS Views</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
